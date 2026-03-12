@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b8cee",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-20 py-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<a href="./index.html" class="flex items-center gap-3 cursor-pointer group">
+<div class="text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform">auto_stories</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Brainstorm Notebook</h2>
+</a>
+<div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#" onclick="document.getElementById('features').scrollIntoView()">Features</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#" onclick="document.getElementById('how-it-works').scrollIntoView()">How it Works</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#" onclick="document.getElementById('reviews').scrollIntoView()">Reviews</a>
+<a class="text-slate-600 dark:text-slate-400 text-sm font-medium hover:text-primary transition-colors" href="#" onclick="document.getElementById('faqs').scrollIntoView()">FAQs</a>
+</nav>
+<button onclick="window.location.href='./customization.html'" class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity">
+<span>Order Now</span>
+</button>
+</div>
+<button onclick="alert('Menu opened')" class="md:hidden text-slate-900 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex flex-col">
+<!-- Hero Section -->
+<section class="px-6 md:px-20 py-16 md:py-24 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">The Minimalist Analog Tool</span>
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-6xl font-black leading-[1.1] tracking-tight">
+                                    Capture Every Idea Before It <span class="text-primary">Disappears</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-[500px]">
+                                    Organize your thoughts and unlock your creative potential with our premium analog workspace for modern thinkers.
+                                </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button onclick="window.location.href='./customization.html'" class="flex h-14 px-8 items-center justify-center rounded-xl bg-primary text-white font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all">
+                                    Start Brainstorming Today
+                                </button>
+<button onclick="document.getElementById('features').scrollIntoView()" class="flex h-14 px-8 items-center justify-center rounded-xl border-2 border-slate-200 dark:border-slate-800 font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                                    View Collection
+                                </button>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-square bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl rotate-3">
+<img alt="Notebook on desk" class="w-full h-full object-cover" data-alt="Premium minimalist notebook on a wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuKnOLEL4Mp6FtTWeituyOMV3YAqiwkD9aIwd6YlSynxcs-sFwsYWNngmolMj59c4r7YYsZZVWYrK2d1O3hX9fD95K_q9vvmyN_womdP5dmL5A0Elfy4lPxeQWtbhZIuvjbV0JE1ugydXxQwMBTKEN7IBBAoCkAgCSKVf6NIBlZbx_WFJVFO6-k6Jyo_ITfETR0KwCXcRiKbm-knzYE5U3_AfMPwneIHYT2NMgBeEhhuL57_Z0LqJaeH2O9ZCLtxK2dD6WfayWK9Ug"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white">10k+ Ideas</p>
+<p class="text-sm text-slate-500">Captured monthly</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="bg-slate-50 dark:bg-slate-900/50 py-20 px-6 md:px-20 text-center">
+<div class="max-w-[800px] mx-auto space-y-6">
+<h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Great Ideas Often Get Lost</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                            The human brain is for having ideas, not holding them. Without a dedicated space to capture sudden flashes of brilliance, they vanish forever. Our notebook is designed to be your second brain, providing the structure your creativity needs to thrive.
+                        </p>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-24 px-6 md:px-20 bg-white dark:bg-background-dark" id="features">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-12 border-l-4 border-primary pl-4">Benefits of Analog Thinking</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="edit_note">edit_note</span>
+<h3 class="font-bold text-xl mb-3 text-slate-900 dark:text-white">No Distractions</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Eliminate digital noise and notifications. Just you and your thoughts.</p>
+</div>
+<div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="psychology">psychology</span>
+<h3 class="font-bold text-xl mb-3 text-slate-900 dark:text-white">Better Recall</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Writing by hand improves cognitive processing and information retention.</p>
+</div>
+<div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="schema">schema</span>
+<h3 class="font-bold text-xl mb-3 text-slate-900 dark:text-white">Fluid Mapping</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Connect disparate ideas visually without the constraints of software grids.</p>
+</div>
+<div class="p-8 rounded-2xl bg-slate-50 dark:bg-slate-900 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="ink_pen">ink_pen</span>
+<h3 class="font-bold text-xl mb-3 text-slate-900 dark:text-white">Tactile Quality</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Premium 120gsm paper that handles any pen with satisfying smoothness.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="py-24 px-6 md:px-20 bg-slate-50 dark:bg-slate-900/30" id="how-it-works">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+<img alt="Mind Map layout" class="w-full h-full object-cover" data-alt="Detail of mind map pages inside the notebook" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgIxkSoE5AHC743DPzj1zWcixTIYOjV4RmhKfmm2QUwNe8IM79fhiob3LhVuez3rybPpznsL6RwUGJYtnCJ7EN0eKzLaHLauSS7W8DMRPU-gD92Yj7_ed0lv4LIhbQvZdbKngG_X8dOwCNjdx0AmmzELKvbS_x0X_jSnXTkISamUbX_N1_eLe7EU0YeZUPct71YejGI-Rs2ihwwCh05ZvDY6Qigqpd1Y7UPREWJyl3FetTIIWaxTbZUrV2GR-Yuh2YtTyIHu0jdufN"/>
+</div>
+<div class="order-1 md:order-2 flex flex-col gap-6">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">Proprietary Mind Map Pages</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg">Our custom-designed dotted grid guides your radial thinking without being intrusive. Perfectly spaced for branching ideas and sketches.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-medium">Subtle 5mm dot grid</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-medium">Perforated pages for easy sharing</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-6">
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Brainstorm Framework</h3>
+<p class="text-slate-600 dark:text-slate-400 text-lg">Includes a guided section on brainstorming techniques used by the world's most innovative design studios.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-medium">10 curated brainstorming templates</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-medium">Index pages for quick navigation</span>
+</li>
+</ul>
+</div>
+<div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
+<img alt="Product interior" class="w-full h-full object-cover" data-alt="Interior pages showing templates and index section" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMWzuLpZH47gNUx8ulh6y9ID6dYqtVoyCq4t3lMWbZmApKBo_lbg3P27G4XvSPHhjgiJj2OyGyNnoKPeJV4OWzMAvR8eX-OER4FbolAqicpwLIl-duaO2DWsGcPzI27Ld_HljY84LuDJ0KrrjTuAIkqCnZNiaCkXppZaAhpwpqfGTm1OdB3FJxbBuNwCbIZhgtjKHdZ2At8dMp4iPaYoHAdIcYk8UUC9nYpbZDWxnz5mZsEtHqswOXPeZH8o6ow2RMKtk_je39iVxr"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="py-24 px-6 md:px-20 bg-white dark:bg-background-dark">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-slate-900 dark:text-white mb-4">Crafted for Excellence</h2>
+<p class="text-slate-600 dark:text-slate-400">Available in three sophisticated finishes</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
+<img alt="Deep Blue Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Deep Blue color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE7VuJqz9o2NMpXakLkQpkEL2OIqF8UfzlUYz545lH4sHFrGzehOjNBgnwo0MILBs9ujRa-WkYZlVF3lucATzm9O1gUFPlOmVPszFxblhVuBVvpHJFvj8ta3kU4vGaOk7Kt3riS0RsKmmS3AFTG42kpQlPYjj9DazIBlaEUq99XUKn22mAN3ApqXvWq3xzWlY2ybh5A5gsH4IohPfW8R-PmjmLoRZKl1MfAvcAKca_1x5axtBHtGpuc4mOdX9Y3igD9rlAdsHJUYUh"/>
+</div>
+<h4 class="font-bold text-xl text-slate-900 dark:text-white">Midnight Navy</h4>
+<p class="text-primary font-medium">$34.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
+<img alt="Soft Grey Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Soft Grey color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6aGGaprwAdjxKEKnBKF7-r_waE8L85cAHyuBfc2UIaJCH3RhGNzoYKnkdgn15pUQnB5QqvfjmhbRHXBgLuJsk9un2rrdWfNKkXYjQ4qLwAF8Y4XsvjNXADhzTUeB8kKQ1GkyCWPV5-B2wKrGN70Zhar3ISHjt0lVQMRJ3DIXAg88V2rUkciKULmdzDPwf2Px9ut_a0wq9GceWdbeIBOku70GA8ZH9C7ggTqdILRLBQ8K4Nt6cjLqaOtGfTOeepr9lwEP6S4dJoaA_"/>
+</div>
+<h4 class="font-bold text-xl text-slate-900 dark:text-white">Mist Grey</h4>
+<p class="text-primary font-medium">$34.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
+<img alt="Classic Black Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Classic Black color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIkcRJlPF9mJJXb4uX_Yizsd97W6YqvHdmdB8tw4p5Y9X1L__1WfLAzbGu3-mqoSvTW_-kCQIi3MxZOdYNmOj6Q9Ec-AecpzDUr-sswM2wDb11Kt4937AW8RLaviA93yf1SXHgD8zZDb_tXq2-pXh3ENyH0hgO0zAJvK0gNWG7ueqRLAF78U13XyENvsTSBB-n_PN_m2Mot5jSncf3fBz1b3Ojpt4oSZvuj26BNE3vBYlFEmBYkQa7OXej9hNanJzri3OacQhB5d2Z"/>
+</div>
+<h4 class="font-bold text-xl text-slate-900 dark:text-white">Onyx Black</h4>
+<p class="text-primary font-medium">$34.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Section -->
+<section class="py-24 px-6 md:px-20 bg-slate-50 dark:bg-slate-900/50" id="reviews">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-xl">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Loved by Creative Professionals</h2>
+<p class="text-slate-600 dark:text-slate-400">Join thousands of thinkers who have switched back to analog for their biggest ideas.</p>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="material-symbols-outlined text-yellow-400">star</span>
+<span class="font-bold text-slate-900 dark:text-white ml-2">4.9/5</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"Finally, a notebook that understands how designers actually think. The mind map pages are a game-changer for my creative process."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" data-alt="User headshot profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2qhue-b4oJytqC1fwUl5MCsNl9CfNrVSGlGPJBYEcxa1OeJpNcAMV9LlJ81ZlwDQuwcuMezbrI3UdcLsaQRNMrDU4lPSXV2k0fDQmE7NdnnzcWaKHc3-fuf8RWuWCAzZsqVNFNvHcIE2eAVz9k3v_5v9SrQKLF2JTYv4DGTkS5uKZjkfBDyfVOfIN9YvLEoFSQNrMqw4X6ugjkTeYtcx4clsNGRXeBRXNWNmx0DBrK5gZbOclA54kelORsmMwTfuNAErdZ1QRO4g3"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white text-sm">David Chen</p>
+<p class="text-slate-500 text-xs uppercase tracking-wider">Product Designer</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"I've tried every digital note-taking app, but nothing beats the tactile feel and speed of the Brainstorm notebook."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" data-alt="User headshot profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmp7-jPTuvTdhiCitPpJog8xUZmsMw61t9hzrBaRShmlQK-m6_85EeF9rpmc93ryfrkO1hoM5ElEzTgWWw2DgVV0pYmdEjLu1gkD2WpNUxud44VpkM3Itnac1V3he1pDlN1sxiP925K7V7C4jJxWDJr0IRnQPBg8UvsO2SQTt4MLdJtC_u1onz_vAGU_rPNEU2lMoxC-ArnQtGuBuXMDItrEF9FMWzzfm_jf3e23ULQCuehT2uX4KidCJar84IAnvwcfMyzJyRmyHR"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white text-sm">Sarah Jenkins</p>
+<p class="text-slate-500 text-xs uppercase tracking-wider">Author</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+<p class="text-slate-600 dark:text-slate-300 italic mb-6">"The build quality is exceptional. It lies perfectly flat, and the paper is a joy to write on with a fountain pen."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" data-alt="User headshot profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYApEE_NM-NManJ6qVYE5axUEiqP1LaVuXR95RnbhbbIlILHcRrFJGsIcjHNn4j0nSzLWG39eCZXavaC-FeyUQEpfQAvMDcGmAb0HhZBZwAKRmARYY7dmn1OHh628SlmUYq3ymQ0gn_bRs3cnreeWUOI2CjTy-OhfWtUXM2WkD_nSTIONeAJi6_MMLn_SCGYYt2s2ccY9v2yNMxal8ac6GKz8fd_gGSgq1Vnsk-Cwir2rWFTElWUdOuIuaXIJInYrgz5270KXhuflL"/>
+</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white text-sm">Marcus Thorne</p>
+<p class="text-slate-500 text-xs uppercase tracking-wider">Architecture Lead</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQs Section -->
+<section class="py-24 px-6 md:px-20 bg-white dark:bg-background-dark" id="faqs">
+<div class="max-w-[800px] mx-auto">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Frequently Asked Questions</h2>
+<div class="space-y-6">
+<div class="border-b border-slate-100 dark:border-slate-800 pb-6">
+<h4 class="text-lg font-bold mb-2 text-slate-900 dark:text-white">What makes the paper special?</h4>
+<p class="text-slate-600 dark:text-slate-400">We use 120gsm acid-free, sustainably sourced paper that is thick enough to prevent bleed-through while remaining smooth for sketching.</p>
+</div>
+<div class="border-b border-slate-100 dark:border-slate-800 pb-6">
+<h4 class="text-lg font-bold mb-2 text-slate-900 dark:text-white">Do you ship internationally?</h4>
+<p class="text-slate-600 dark:text-slate-400">Yes, we ship to over 50 countries worldwide. Shipping times vary by location but usually take 5-10 business days.</p>
+</div>
+<div class="border-b border-slate-100 dark:border-slate-800 pb-6">
+<h4 class="text-lg font-bold mb-2 text-slate-900 dark:text-white">Is there a digital companion?</h4>
+<p class="text-slate-600 dark:text-slate-400">The Brainstorm notebook is strictly analog, though its design is compatible with modern scanning apps like Rocketbook or Adobe Scan.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-24 px-6 md:px-20">
+<div class="max-w-[1200px] mx-auto bg-primary rounded-[2rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
+<div class="relative z-10 max-w-2xl mx-auto space-y-8">
+<h2 class="text-4xl md:text-5xl font-black">Ready to unlock your next big idea?</h2>
+<p class="text-lg text-white/80">Get the notebook designed for the way your brain actually works.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="window.location.href='./customization.html'" class="h-14 px-10 rounded-full bg-white text-primary font-bold text-lg hover:shadow-xl hover:scale-105 transition-all">
+                                    Order Now
+                                </button>
+<button onclick="window.location.href='./customization.html'" class="h-14 px-10 rounded-full bg-primary border-2 border-white/30 text-white font-bold text-lg hover:bg-white/10 transition-all">
+                                    Gift a Notebook
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900 py-12 px-6 md:px-20">
+<div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+<div class="col-span-2 md:col-span-1">
+<a href="./index.html" class="flex items-center gap-2 mb-6 group cursor-pointer inline-flex">
+<div class="text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">auto_stories</span>
+</div>
+<span class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-primary transition-colors">Brainstorm Notebook</span>
+</a>
+<p class="text-slate-500 text-sm">Empowering thinkers since 2023.</p>
+</div>
+<div>
+<h5 class="font-bold mb-4">Product</h5>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#" onclick="alert('Coming Soon')">Classic Edition</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Coming Soon')">Limited Release</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Coming Soon')">Bulk Orders</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-4">Company</h5>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#" onclick="alert('Learning about our story')">Our Story</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Sustainability info')">Sustainability</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Contacting support')">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-4">Support</h5>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#" onclick="alert('Viewing shipping info')">Shipping Info</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Viewing returns policy')">Returns</a></li>
+<li><a class="hover:text-primary" href="#" onclick="alert('Affiliates program')">Affiliates</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 Brainstorm Notebook Co. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#" onclick="alert('Privacy Policy viewed')">Privacy Policy</a>
+<a class="hover:text-primary" href="#" onclick="alert('Terms of Service viewed')">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
