@@ -25,6 +25,12 @@
         }
     </script>
 <title>Brainstorm Notebook Customizer</title>
+
+    <style>
+        input[type=number].hide-arrows::-webkit-inner-spin-button, 
+        input[type=number].hide-arrows::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number].hide-arrows { appearance: textfield; -moz-appearance: textfield; }
+    </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
@@ -121,118 +127,211 @@
 <span class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">3</span>
 <h2 class="text-xl font-bold">Page Templates &amp; Distribution</h2>
 </div>
-<div class="bg-primary/5 p-4 rounded-xl mb-6 border border-primary/20 flex items-center gap-4">
-<div class="bg-white dark:bg-slate-800 p-2 rounded-lg">
-<span class="material-symbols-outlined text-primary">info</span>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="templates-grid">
+
+        <!-- Blank Template -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Blank Template', './public/assets/blank-note.png')">
+                    <img src="./public/assets/blank-note.png" alt="Blank Template" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Blank Template</p>
+                    <p class="text-[10px] text-slate-500">Pure Freedom</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('blank', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-blank" value="5" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('blank', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('blank', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Boxing Method -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Boxing Method', './public/assets/boxing-note.png')">
+                    <img src="./public/assets/boxing-note.png" alt="Boxing Method" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Boxing Method</p>
+                    <p class="text-[10px] text-slate-500">Task Grouping</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('boxing', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-boxing" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('boxing', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('boxing', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Grid / Caro -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Grid / Caro', './public/assets/caro-note.png')">
+                    <img src="./public/assets/caro-note.png" alt="Grid / Caro" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Grid / Caro</p>
+                    <p class="text-[10px] text-slate-500">Structured Grid</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('caro', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-caro" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('caro', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('caro', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Charting -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Charting', './public/assets/charting-note.png')">
+                    <img src="./public/assets/charting-note.png" alt="Charting" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Charting</p>
+                    <p class="text-[10px] text-slate-500">Tracker/Graph</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('charting', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-charting" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('charting', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('charting', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Cornell Notes -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Cornell Notes', './public/assets/cornell-note.png')">
+                    <img src="./public/assets/cornell-note.png" alt="Cornell Notes" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Cornell Notes</p>
+                    <p class="text-[10px] text-slate-500">Structured Review</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('cornell', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-cornell" value="10" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('cornell', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('cornell', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Eisenhower -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Eisenhower', './public/assets/eisenhower-note.png')">
+                    <img src="./public/assets/eisenhower-note.png" alt="Eisenhower" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Eisenhower</p>
+                    <p class="text-[10px] text-slate-500">Priority Matrix</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('eisenhower', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-eisenhower" value="5" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('eisenhower', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('eisenhower', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Mindmap -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Mindmap', './public/assets/mindmap.png')">
+                    <img src="./public/assets/mindmap.png" alt="Mindmap" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Mindmap</p>
+                    <p class="text-[10px] text-slate-500">Free Association</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('mindmap', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-mindmap" value="8" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('mindmap', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('mindmap', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Outline -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Outline', './public/assets/outline-note.png')">
+                    <img src="./public/assets/outline-note.png" alt="Outline" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Outline</p>
+                    <p class="text-[10px] text-slate-500">Hierarchical Planning</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('outline', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-outline" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('outline', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('outline', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Vision Board -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Vision Board', './public/assets/vision-board.png')">
+                    <img src="./public/assets/vision-board.png" alt="Vision Board" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Vision Board</p>
+                    <p class="text-[10px] text-slate-500">Goal Visualization</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('vision', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-vision" value="5" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('vision', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('vision', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Year in Pixels -->
+        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Year in Pixels', './public/assets/year-in-pixels.png')">
+                    <img src="./public/assets/year-in-pixels.png" alt="Year in Pixels" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                </div>
+                <div>
+                    <p class="font-bold text-sm leading-tight">Year in Pixels</p>
+                    <p class="text-[10px] text-slate-500">Annual Tracker</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('year', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-year" value="5" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('year', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('year', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        </div>
+        
+        <!-- Custom Upload -->
+        <label class="flex flex-col p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border-2 border-dashed border-primary/40 hover:border-primary transition-colors cursor-pointer justify-center items-center text-center group">
+            <input type="file" accept="image/png, image/jpeg, application/pdf" class="hidden" onchange="window.appState.handleCustomUpload(this)">
+            <span class="material-symbols-outlined text-primary mb-1 group-hover:scale-110 transition-transform">upload_file</span>
+            <p class="font-bold text-sm text-primary">Add your own design</p>
+            <p class="text-[10px] text-slate-500">+$5.00 Setup Fee. PDF/PNG</p>
+        </label>
+    </div>
+    
+
+<!-- Live Counter -->
+<div class="mt-8 p-6 bg-slate-900 text-white rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex justify-between mb-2">
+<span id="pages-selected-text" class="text-sm font-medium">Selected pages: 38 / 60</span>
+<span id="pages-percent-text" class="text-sm font-medium">63% Full</span>
 </div>
-<div>
-<p class="font-bold text-sm">Fixed Cover Page</p>
-<p class="text-xs text-slate-500">Includes Year-in-Pixel Tracker &amp; Digital QR Sync</p>
+<div class="w-full bg-slate-700 rounded-full h-2.5">
+<div id="pages-progress-bar" class="bg-primary h-2.5 rounded-full w-[63%] transition-all duration-300"></div>
 </div>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<!-- Cornell -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Cornell notes page layout illustration" onclick="window.appState.openModal('Cornell Notes', 'https://placehold.co/600x800/eeeeee/999999?text=Cornell+Notes')">
-<span class="material-symbols-outlined text-slate-400">format_list_bulleted</span>
-</div>
-<div>
-<p class="font-bold">Cornell Notes</p>
-<p class="text-xs text-slate-500">Structured Review</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('cornell', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-cornell">10</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('cornell', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
-<!-- Mindmap -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Mind map diagram layout illustration" onclick="window.appState.openModal('Mindmap', 'https://placehold.co/600x800/eeeeee/999999?text=Mindmap')">
-<span class="material-symbols-outlined text-slate-400">hub</span>
-</div>
-<div>
-<p class="font-bold">Mindmap</p>
-<p class="text-xs text-slate-500">Free Association</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('mindmap', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-mindmap">8</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('mindmap', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
-<!-- Eisenhower -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Eisenhower matrix priority quadrant illustration" onclick="window.appState.openModal('Eisenhower', 'https://placehold.co/600x800/eeeeee/999999?text=Eisenhower')">
-<span class="material-symbols-outlined text-slate-400">grid_view</span>
-</div>
-<div>
-<p class="font-bold">Eisenhower</p>
-<p class="text-xs text-slate-500">Priority Matrix</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('eisenhower', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-eisenhower">5</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('eisenhower', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
-<!-- Vision Board -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Vision board collage layout illustration" onclick="window.appState.openModal('Vision Board', 'https://placehold.co/600x800/eeeeee/999999?text=Vision+Board')">
-<span class="material-symbols-outlined text-slate-400">imagesmode</span>
-</div>
-<div>
-<p class="font-bold">Vision Board</p>
-<p class="text-xs text-slate-500">Goal Visualization</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('vision', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-vision">5</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('vision', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
-<!-- Boxing Method -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Boxing method task grouping layout illustration" onclick="window.appState.openModal('Boxing Method', 'https://placehold.co/600x800/eeeeee/999999?text=Boxing+Method')">
-<span class="material-symbols-outlined text-slate-400">view_quilt</span>
-</div>
-<div>
-<p class="font-bold">Boxing Method</p>
-<p class="text-xs text-slate-500">Task Grouping</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('boxing', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-boxing">5</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('boxing', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
-<!-- Blank -->
-<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="w-10 h-12 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors" data-alt="Blank page layout illustration" onclick="window.appState.openModal('Blank', 'https://placehold.co/600x800/eeeeee/999999?text=Blank')">
-<span class="material-symbols-outlined text-slate-400">check_box_outline_blank</span>
-</div>
-<div>
-<p class="font-bold">Blank</p>
-<p class="text-xs text-slate-500">Pure Freedom</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<button type="button" class="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('blank', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
-<span class="font-bold w-6 text-center" id="count-blank">5</span>
-<button type="button" class="tmpl-add-btn w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('blank', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
-</div>
-</div>
+<p id="pages-remaining-text" class="text-xs text-slate-400 max-w-[200px] transition-colors">You have 22 more pages to assign to reach your selected notebook capacity.</p>
 </div>
 
 <!-- 4. Additional Features -->
@@ -258,19 +357,7 @@
 </label>
 </section>
 
-<!-- Live Counter -->
-<div class="mt-8 p-6 bg-slate-900 text-white rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-<div class="flex-1">
-<div class="flex justify-between mb-2">
-<span id="pages-selected-text" class="text-sm font-medium">Selected pages: 38 / 60</span>
-<span id="pages-percent-text" class="text-sm font-medium">63% Full</span>
-</div>
-<div class="w-full bg-slate-700 rounded-full h-2.5">
-<div id="pages-progress-bar" class="bg-primary h-2.5 rounded-full w-[63%] transition-all duration-300"></div>
-</div>
-</div>
-<p id="pages-remaining-text" class="text-xs text-slate-400 max-w-[200px] transition-colors">You have 22 more pages to assign to reach your selected notebook capacity.</p>
-</div>
+
 </section>
 </div>
 <!-- Preview & Summary Sidebar -->
@@ -392,28 +479,25 @@ window.appState = {
     size: 'A5',
     pages: 60,
     wireless: false,
-    templates: { cornell: 10, mindmap: 8, eisenhower: 5, vision: 5, boxing: 5, blank: 5 },
+    templates: { blank: 5, boxing: 0, caro: 0, charting: 0, cornell: 10, eisenhower: 5, mindmap: 8, outline: 0, vision: 5, year: 5 },
+    customUploads: [], // array to store custom IDs
     
     // Config
     prices: {
-        size: {
-            'A5': 24.00,
-            'B5': 28.00,
-            'A4': 32.00
-        },
+        size: { 'A5': 24.00, 'B5': 28.00, 'A4': 32.00 },
         pages: { 45: 0, 60: 4.00, 75: 8.00, 90: 12.00, 120: 20.00 },
         wireless: 25.00,
-        templateFee: 4.50 // Fixed template customization fee
+        templateFee: 4.50,
+        customDesignFee: 5.00 // flat setup fee per uploaded design
     },
 
-    updateSize(size) {
-        this.size = size;
-        this.render();
-    },
+    updateSize(size) { this.size = size; this.render(); },
     updatePages(pages) {
         const currentTotal = Object.values(this.templates).reduce((a,b) => a+b, 0);
         if (pages < currentTotal) {
-            alert(`You have over ${pages} templates selected! Please remove some layout pages before downgrading notebook physical capacity.`);
+            alert(`You have over ${pages} templates selected! Please remove some layout pages before downgrading capacity.`);
+            // Reset button visuals logic handles it in render, but input doesn't revert. 
+            // We'll just reject the change.
             return;
         }
         this.pages = pages;
@@ -425,16 +509,69 @@ window.appState = {
     },
     updateTemplate(type, delta) {
         let currentTotal = Object.values(this.templates).reduce((a,b) => a+b, 0);
-        
         if (delta > 0 && currentTotal >= this.pages) {
-             alert('Maximum page capacity reached. Increase total notebook page size or remove other templates.');
              return; 
         }
-        if (delta < 0 && this.templates[type] <= 0) {
-             return; 
-        }
+        if (delta < 0 && this.templates[type] <= 0) return; 
+        
         this.templates[type] += delta;
+        document.getElementById('count-' + type).value = this.templates[type]; // specifically update the input box
         this.render();
+    },
+    updateTemplateInput(type, el) {
+        let strVal = el.value.trim();
+        let calcVal = parseInt(strVal);
+        if (isNaN(calcVal) || calcVal < 0) calcVal = 0;
+        
+        let totalWithoutThis = Object.values(this.templates).reduce((a,b) => a+b, 0) - this.templates[type];
+        let maxAllowed = this.pages - totalWithoutThis;
+        
+        if (calcVal > maxAllowed) {
+            calcVal = maxAllowed;
+            el.value = maxAllowed; // Force input value correction on screen
+        }
+        
+        this.templates[type] = calcVal;
+        this.render();
+    },
+    handleCustomUpload(fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        
+        const previewUrl = URL.createObjectURL(file);
+        const uniqueId = 'custom_' + Date.now();
+        
+        // Add to state
+        this.templates[uniqueId] = 0;
+        this.customUploads.push(uniqueId);
+        
+        // Create new DOM node
+        const grid = document.getElementById('templates-grid');
+        const uploadBtn = grid.lastElementChild; // The Add Your Own Design button
+        
+        const newRow = document.createElement('div');
+        newRow.className = "flex items-center justify-between p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/40 fade-in-row order-last";
+        newRow.innerHTML = `
+            <div class="flex items-center gap-3 w-1/2">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Custom Upload', '${previewUrl}')">
+                    <img src="${previewUrl}" alt="Custom" class="w-full h-full object-cover">
+                </div>
+                <div class="w-full">
+                    <input type="text" placeholder="Name your design..." class="w-full bg-transparent border-b border-primary/30 text-sm font-bold focus:outline-none focus:border-primary py-1">
+                    <p class="text-[10px] text-primary">+$5.00 Setup Fee applied</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('${uniqueId}', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-${uniqueId}" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('${uniqueId}', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('${uniqueId}', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        `;
+        
+        grid.insertBefore(newRow, uploadBtn);
+        this.render();
+        // clear input so same file can trigger change again if re-selected
+        fileInput.value = '';
     },
     
     openModal(title, imgUrl) {
@@ -485,7 +622,7 @@ window.appState = {
         // Render Template Counters
         let currentTotal = 0;
         for (const [type, count] of Object.entries(this.templates)) {
-            document.getElementById('count-' + type).innerText = count;
+            document.getElementById('count-' + type).value = count;
             currentTotal += count;
         }
 
@@ -514,10 +651,32 @@ window.appState = {
         }
 
         // Render Order Summary
+
+        // Inject Custom Upload Fee into Summary
+        let customSummaryEl = document.getElementById('summary-custom-fee');
+        if (!customSummaryEl) {
+            const wrap = document.createElement('div');
+            wrap.id = 'summary-custom-fee';
+            wrap.className = "flex justify-between text-sm mt-2";
+            wrap.innerHTML = `<span class="text-slate-500">Custom Upload Fees</span><span id="summary-custom-price" class="font-medium text-slate-900 dark:text-white">$0.00</span>`;
+            
+            const wirelessEl = document.getElementById('summary-wireless-wrapper');
+            wirelessEl.parentNode.insertBefore(wrap, wirelessEl);
+            customSummaryEl = wrap;
+        }
+        
+        const customUploadCount = this.customUploads.length;
+        if (customUploadCount > 0) {
+            customSummaryEl.classList.remove('hidden');
+            document.getElementById('summary-custom-price').innerText = `+$${(customUploadCount * this.prices.customDesignFee).toFixed(2)}`;
+        } else {
+            customSummaryEl.classList.add('hidden');
+        }
+
         const basePrice = this.prices.size[this.size];
         const pagesPrice = this.prices.pages[this.pages];
         const wirelessPrice = this.wireless ? this.prices.wireless : 0;
-        const total = basePrice + pagesPrice + this.prices.templateFee + wirelessPrice;
+        const total = basePrice + pagesPrice + this.prices.templateFee + wirelessPrice + (customUploadCount * this.prices.customDesignFee);
 
         document.getElementById('summary-base-name').innerText = `${this.size} Custom Notebook (${this.pages}p)`;
         document.getElementById('summary-base-price').innerText = `$${(basePrice + pagesPrice).toFixed(2)}`;
