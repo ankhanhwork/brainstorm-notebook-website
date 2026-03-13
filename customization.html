@@ -72,7 +72,7 @@
 <label id="size-card-a5" class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer" onclick="window.appState.updateSize('A5')">
 <input checked class="hidden" name="size" type="radio"/>
 <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700" data-alt="Minimalist A5 notebook mockup on desk">
-<img src="./public/assets/size-a5.png" alt="A5 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+<img src="assets/size-a5.png" alt="A5 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
 <span class="material-symbols-outlined text-4xl text-primary/40 hidden">menu_book</span>
 </div>
 <div>
@@ -84,7 +84,7 @@
 <label id="size-card-b5" class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer" onclick="window.appState.updateSize('B5')">
 <input class="hidden" name="size" type="radio"/>
 <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700" data-alt="Minimalist B5 notebook mockup on desk">
-<img src="./public/assets/size-b5.png" alt="B5 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+<img src="assets/size-b5.png" alt="B5 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
 <span class="material-symbols-outlined text-4xl text-slate-400 hidden">menu_book</span>
 </div>
 <div>
@@ -96,7 +96,7 @@
 <label id="size-card-a4" class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer" onclick="window.appState.updateSize('A4')">
 <input class="hidden" name="size" type="radio"/>
 <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700" data-alt="Minimalist A4 notebook mockup on desk">
-<img src="./public/assets/size-a4.png" alt="A4 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+<img src="assets/size-a4.png" alt="A4 Notebook" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
 <span class="material-symbols-outlined text-4xl text-slate-400 hidden">menu_book</span>
 </div>
 <div>
@@ -133,8 +133,8 @@
         <!-- Blank Template -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Blank Template', './public/assets/blank-note.png')">
-                    <img src="./public/assets/blank-note.png" alt="Blank Template" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Blank Template', 'assets/blank-note.png')">
+                    <img src="assets/blank-note.png" alt="Blank Template" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Blank Template</p>
@@ -151,8 +151,8 @@
         <!-- Boxing Method -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Boxing Method', './public/assets/boxing-note.png')">
-                    <img src="./public/assets/boxing-note.png" alt="Boxing Method" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Boxing Method', 'assets/boxing-note.png')">
+                    <img src="assets/boxing-note.png" alt="Boxing Method" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Boxing Method</p>
@@ -169,8 +169,8 @@
         <!-- Grid / Caro -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Grid / Caro', './public/assets/caro-note.png')">
-                    <img src="./public/assets/caro-note.png" alt="Grid / Caro" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Grid / Caro', 'assets/caro-note.png')">
+                    <img src="assets/caro-note.png" alt="Grid / Caro" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Grid / Caro</p>
@@ -187,8 +187,8 @@
         <!-- Charting -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Charting', './public/assets/charting-note.png')">
-                    <img src="./public/assets/charting-note.png" alt="Charting" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Charting', 'assets/charting-note.png')">
+                    <img src="assets/charting-note.png" alt="Charting" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Charting</p>
@@ -205,8 +205,8 @@
         <!-- Cornell Notes -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Cornell Notes', './public/assets/cornell-note.png')">
-                    <img src="./public/assets/cornell-note.png" alt="Cornell Notes" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Cornell Notes', 'assets/cornell-note.png')">
+                    <img src="assets/cornell-note.png" alt="Cornell Notes" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Cornell Notes</p>
@@ -223,8 +223,8 @@
         <!-- Eisenhower -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Eisenhower', './public/assets/eisenhower-note.png')">
-                    <img src="./public/assets/eisenhower-note.png" alt="Eisenhower" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Eisenhower', 'assets/eisenhower-note.png')">
+                    <img src="assets/eisenhower-note.png" alt="Eisenhower" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Eisenhower</p>
@@ -241,8 +241,8 @@
         <!-- Mindmap -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Mindmap', './public/assets/mindmap.png')">
-                    <img src="./public/assets/mindmap.png" alt="Mindmap" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Mindmap', 'assets/mindmap.png')">
+                    <img src="assets/mindmap.png" alt="Mindmap" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Mindmap</p>
@@ -259,8 +259,8 @@
         <!-- Outline -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Outline', './public/assets/outline-note.png')">
-                    <img src="./public/assets/outline-note.png" alt="Outline" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Outline', 'assets/outline-note.png')">
+                    <img src="assets/outline-note.png" alt="Outline" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Outline</p>
@@ -277,8 +277,8 @@
         <!-- Vision Board -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Vision Board', './public/assets/vision-board.png')">
-                    <img src="./public/assets/vision-board.png" alt="Vision Board" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Vision Board', 'assets/vision-board.png')">
+                    <img src="assets/vision-board.png" alt="Vision Board" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Vision Board</p>
@@ -295,8 +295,8 @@
         <!-- Year in Pixels -->
         <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Year in Pixels', './public/assets/year-in-pixels.png')">
-                    <img src="./public/assets/year-in-pixels.png" alt="Year in Pixels" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Year in Pixels', 'assets/year-in-pixels.png')">
+                    <img src="assets/year-in-pixels.png" alt="Year in Pixels" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/100x140?text=IMG'"/>
                 </div>
                 <div>
                     <p class="font-bold text-sm leading-tight">Year in Pixels</p>
