@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: './', // Use relative paths for easy deployment on GitHub Pages
+  base: '/brainstorm-notebook-website/', // Use relative paths for easy deployment on GitHub Pages
   publicDir: 'public', 
   build: {
     outDir: 'dist',
