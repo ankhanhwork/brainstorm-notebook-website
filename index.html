@@ -13,7 +13,7 @@
         theme: {
           extend: {
             colors: {
-              "primary": "#2b8cee",
+              "primary": "#7a9f48",
               "background-light": "#f6f7f8",
               "background-dark": "#101922",
             },
@@ -36,10 +36,9 @@
 <!-- Header Section -->
 <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-20 py-4 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
 <a href="./index.html" class="flex items-center gap-3 cursor-pointer group">
-<div class="text-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform">auto_stories</span>
+<div class="flex items-center justify-center">
+<img src="assets/logo.png" alt="NOTED Logo" class="h-16 w-auto group-hover:scale-110 transition-transform">
 </div>
-<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Brainstorm Notebook</h2>
 </a>
 <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
 <nav class="flex items-center gap-8">
@@ -134,79 +133,115 @@
 </section>
 <!-- Features Section -->
 <section class="py-24 px-6 md:px-20 bg-slate-50 dark:bg-slate-900/30" id="how-it-works">
-<div class="max-w-[1200px] mx-auto flex flex-col gap-20">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div class="order-2 md:order-1 rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
-<img alt="Mind Map layout" class="w-full h-full object-cover" data-alt="Detail of mind map pages inside the notebook" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgIxkSoE5AHC743DPzj1zWcixTIYOjV4RmhKfmm2QUwNe8IM79fhiob3LhVuez3rybPpznsL6RwUGJYtnCJ7EN0eKzLaHLauSS7W8DMRPU-gD92Yj7_ed0lv4LIhbQvZdbKngG_X8dOwCNjdx0AmmzELKvbS_x0X_jSnXTkISamUbX_N1_eLe7EU0YeZUPct71YejGI-Rs2ihwwCh05ZvDY6Qigqpd1Y7UPREWJyl3FetTIIWaxTbZUrV2GR-Yuh2YtTyIHu0jdufN"/>
-</div>
-<div class="order-1 md:order-2 flex flex-col gap-6">
-<h3 class="text-3xl font-bold text-slate-900 dark:text-white">Proprietary Mind Map Pages</h3>
-<p class="text-slate-600 dark:text-slate-400 text-lg">Our custom-designed dotted grid guides your radial thinking without being intrusive. Perfectly spaced for branching ideas and sketches.</p>
-<ul class="space-y-4">
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-medium">Subtle 5mm dot grid</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-medium">Perforated pages for easy sharing</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div class="flex flex-col gap-6">
-<h3 class="text-3xl font-bold text-slate-900 dark:text-white">The Brainstorm Framework</h3>
-<p class="text-slate-600 dark:text-slate-400 text-lg">Includes a guided section on brainstorming techniques used by the world's most innovative design studios.</p>
-<ul class="space-y-4">
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-medium">10 curated brainstorming templates</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-medium">Index pages for quick navigation</span>
-</li>
-</ul>
-</div>
-<div class="rounded-3xl overflow-hidden shadow-xl aspect-[4/3]">
-<img alt="Product interior" class="w-full h-full object-cover" data-alt="Interior pages showing templates and index section" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMWzuLpZH47gNUx8ulh6y9ID6dYqtVoyCq4t3lMWbZmApKBo_lbg3P27G4XvSPHhjgiJj2OyGyNnoKPeJV4OWzMAvR8eX-OER4FbolAqicpwLIl-duaO2DWsGcPzI27Ld_HljY84LuDJ0KrrjTuAIkqCnZNiaCkXppZaAhpwpqfGTm1OdB3FJxbBuNwCbIZhgtjKHdZ2At8dMp4iPaYoHAdIcYk8UUC9nYpbZDWxnz5mZsEtHqswOXPeZH8o6ow2RMKtk_je39iVxr"/>
-</div>
-</div>
+<div class="max-w-[1200px] mx-auto flex flex-col gap-32">
+    
+    <!-- Feature 1: Banana Paper -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
+            <img alt="Banana Fiber Paper" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="assets/banana-paper.png"/>
+        </div>
+        <div class="flex flex-col gap-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Sustainability</span>
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white">Banana Fiber Paper</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Experience the future of eco-friendly writing. Our paper is handcrafted from post-harvest banana tree stems—preventing waste and saving trees.</p>
+            <ul class="space-y-4">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full text-sm">eco</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">100% Tree-free & biodegradable</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full text-sm">texture</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Unique tactile fiber texture</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full text-sm">history_edu</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Bleed-proof for fountain pens</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Feature 2: Templates (Revised) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1 flex flex-col gap-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Workflow</span>
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white">The Brainstorm Framework</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Choose from over 10 curated layout templates designed for different thinking styles—from Cornell notes to Eisenhower matrices.</p>
+            <div class="grid grid-cols-3 gap-3 mt-2">
+                <div class="aspect-[3/4] bg-white rounded-lg border border-slate-200 p-2 shadow-sm">
+                    <img src="assets/mindmap.png" class="w-full h-full object-contain opacity-50"/>
+                </div>
+                <div class="aspect-[3/4] bg-white rounded-lg border border-slate-200 p-2 shadow-sm">
+                    <img src="assets/cornell-note.png" class="w-full h-full object-contain opacity-50"/>
+                </div>
+                <div class="aspect-[3/4] bg-white rounded-lg border border-slate-200 p-2 shadow-sm">
+                    <img src="assets/boxing-note.png" class="w-full h-full object-contain opacity-50"/>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
+            <img alt="Product interior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMWzuLpZH47gNUx8ulh6y9ID6dYqtVoyCq4t3lMWbZmApKBo_lbg3P27G4XvSPHhjgiJj2OyGyNnoKPeJV4OWzMAvR8eX-OER4FbolAqicpwLIl-duaO2DWsGcPzI27Ld_HljY84LuDJ0KrrjTuAIkqCnZNiaCkXppZaAhpwpqfGTm1OdB3FJxbBuNwCbIZhgtjKHdZ2At8dMp4iPaYoHAdIcYk8UUC9nYpbZDWxnz5mZsEtHqswOXPeZH8o6ow2RMKtk_je39iVxr"/>
+        </div>
+    </div>
+
+    <!-- Feature 3: Refillable -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group">
+            <img alt="Refillable Binder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="assets/refillable.png"/>
+        </div>
+        <div class="flex flex-col gap-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Durability</span>
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white">A Lifetime Investment</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Stop buying new notebooks every month. Our premium 6-ring binder system allows you to refill, reorganize, and archive your ideas infinitely.</p>
+            <ul class="space-y-4">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full text-sm">refresh</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Reorder pages to match your flow</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full text-sm">settings_input_component</span>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Mix and match different templates</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Feature 4: Leather & Powerbank -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1 flex flex-col gap-6">
+            <span class="text-primary font-bold uppercase tracking-widest text-xs">Innovation</span>
+            <h3 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white">Smart Hardware</h3>
+            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Encased in waterproof, premium leather and equipped with an integrated wireless power bank to keep your tools ready whenever inspiration strikes.</p>
+            <div class="flex flex-col gap-4">
+                <div class="flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary">water_drop</span>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white">Waterproof Leather Cover</p>
+                        <p class="text-sm text-slate-500">Military-grade protection for your precious ideas.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary">battery_charging_full</span>
+                    <div>
+                        <p class="font-bold text-slate-900 dark:text-white">8,000mAh Power Bank</p>
+                        <p class="text-sm text-slate-500">Wireless charging built right into the front cover.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 md:order-2 grid grid-cols-1 gap-6">
+            <div class="rounded-3xl overflow-hidden shadow-xl aspect-video group">
+                <img alt="Leather Cover" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="assets/leather-cover.png"/>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-xl aspect-video group">
+                <img alt="Integrated Powerbank" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="assets/powerbank.png"/>
+            </div>
+        </div>
+    </div>
+
 </div>
 </section>
-<!-- Product Showcase -->
-<section class="py-24 px-6 md:px-20 bg-white dark:bg-background-dark">
-<div class="max-w-[1200px] mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-4xl font-black text-slate-900 dark:text-white mb-4">Crafted for Excellence</h2>
-<p class="text-slate-600 dark:text-slate-400">Available in three sophisticated finishes</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
-<img alt="Deep Blue Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Deep Blue color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE7VuJqz9o2NMpXakLkQpkEL2OIqF8UfzlUYz545lH4sHFrGzehOjNBgnwo0MILBs9ujRa-WkYZlVF3lucATzm9O1gUFPlOmVPszFxblhVuBVvpHJFvj8ta3kU4vGaOk7Kt3riS0RsKmmS3AFTG42kpQlPYjj9DazIBlaEUq99XUKn22mAN3ApqXvWq3xzWlY2ybh5A5gsH4IohPfW8R-PmjmLoRZKl1MfAvcAKca_1x5axtBHtGpuc4mOdX9Y3igD9rlAdsHJUYUh"/>
-</div>
-<h4 class="font-bold text-xl text-slate-900 dark:text-white">Midnight Navy</h4>
-<p class="text-primary font-medium">$34.00</p>
-</div>
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
-<img alt="Soft Grey Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Soft Grey color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6aGGaprwAdjxKEKnBKF7-r_waE8L85cAHyuBfc2UIaJCH3RhGNzoYKnkdgn15pUQnB5QqvfjmhbRHXBgLuJsk9un2rrdWfNKkXYjQ4qLwAF8Y4XsvjNXADhzTUeB8kKQ1GkyCWPV5-B2wKrGN70Zhar3ISHjt0lVQMRJ3DIXAg88V2rUkciKULmdzDPwf2Px9ut_a0wq9GceWdbeIBOku70GA8ZH9C7ggTqdILRLBQ8K4Nt6cjLqaOtGfTOeepr9lwEP6S4dJoaA_"/>
-</div>
-<h4 class="font-bold text-xl text-slate-900 dark:text-white">Mist Grey</h4>
-<p class="text-primary font-medium">$34.00</p>
-</div>
-<div class="group cursor-pointer">
-<div class="rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800">
-<img alt="Classic Black Notebook" class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Notebook in Classic Black color finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIkcRJlPF9mJJXb4uX_Yizsd97W6YqvHdmdB8tw4p5Y9X1L__1WfLAzbGu3-mqoSvTW_-kCQIi3MxZOdYNmOj6Q9Ec-AecpzDUr-sswM2wDb11Kt4937AW8RLaviA93yf1SXHgD8zZDb_tXq2-pXh3ENyH0hgO0zAJvK0gNWG7ueqRLAF78U13XyENvsTSBB-n_PN_m2Mot5jSncf3fBz1b3Ojpt4oSZvuj26BNE3vBYlFEmBYkQa7OXej9hNanJzri3OacQhB5d2Z"/>
-</div>
-<h4 class="font-bold text-xl text-slate-900 dark:text-white">Onyx Black</h4>
-<p class="text-primary font-medium">$34.00</p>
-</div>
-</div>
-</div>
-</section>
+
 <!-- Social Proof Section -->
 <section class="py-24 px-6 md:px-20 bg-slate-50 dark:bg-slate-900/50" id="reviews">
 <div class="max-w-[1200px] mx-auto">
@@ -308,13 +343,10 @@
 <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900 py-12 px-6 md:px-20">
 <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
 <div class="col-span-2 md:col-span-1">
-<a href="./index.html" class="flex items-center gap-2 mb-6 group cursor-pointer inline-flex">
-<div class="text-primary flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">auto_stories</span>
+<div class="mb-6">
+<span class="font-bold text-lg text-slate-400">NOTED Notebook</span>
 </div>
-<span class="font-bold text-lg text-slate-900 dark:text-white group-hover:text-primary transition-colors">Brainstorm Notebook</span>
-</a>
-<p class="text-slate-500 text-sm">Empowering thinkers since 2023.</p>
+<p class="text-slate-500 text-sm">Empowering thinkers since 2026.</p>
 </div>
 <div>
 <h5 class="font-bold mb-4">Product</h5>
@@ -342,7 +374,7 @@
 </div>
 </div>
 <div class="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-<p>© 2024 Brainstorm Notebook Co. All rights reserved.</p>
+<p>© 2026 NOTED Notebook Co. All rights reserved.</p>
 <div class="flex gap-6">
 <a class="hover:text-primary" href="#" onclick="alert('Privacy Policy viewed')">Privacy Policy</a>
 <a class="hover:text-primary" href="#" onclick="alert('Terms of Service viewed')">Terms of Service</a>
