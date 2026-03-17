@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - NOTED Notebook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7a9f48",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<a href="./index.html" class="flex items-center gap-3 cursor-pointer group">
+<div class="flex items-center justify-center">
+<img src="assets/logo.png" alt="NOTED Logo" class="h-16 w-auto group-hover:scale-110 transition-transform">
+</div>
+</a>
+</header>
+<main class="flex flex-1 justify-center py-8 px-4 md:px-0">
+<div class="layout-content-container flex flex-col md:flex-row max-w-[1200px] flex-1 gap-8">
+<!-- Left Column: Checkout Form -->
+<div class="flex-1 flex flex-col gap-6">
+<!-- Progress Steps -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl border border-primary/10 p-4">
+<div class="flex justify-between relative">
+<div class="flex flex-col items-center flex-1 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<p class="text-xs font-bold text-slate-500">Shipping</p>
+</div>
+<div class="flex flex-col items-center flex-1 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mb-2 border-4 border-primary/20">
+<span class="text-xs">2</span>
+</div>
+<p class="text-xs font-bold text-primary">Payment</p>
+</div>
+<div class="flex flex-col items-center flex-1 relative z-10">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center mb-2">
+<span class="text-xs">3</span>
+</div>
+<p class="text-xs font-bold text-slate-500">Review</p>
+</div>
+<!-- Connector Line -->
+<div class="absolute top-4 left-0 w-full h-[2px] bg-slate-200 dark:bg-slate-800 -z-0">
+<div class="h-full bg-primary w-1/2"></div>
+</div>
+</div>
+</div>
+<!-- Payment Methods Selection -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl border border-primary/10 p-6">
+<h2 class="text-xl font-bold mb-6">Payment Method</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+<label class="relative flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
+<input checked="" class="hidden" name="payment_type" type="radio"/>
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<span class="text-sm font-semibold">Card</span>
+</label>
+<label class="relative flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer">
+<input class="hidden" name="payment_type" type="radio"/>
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">account_balance_wallet</span>
+<span class="text-sm font-semibold">PayPal</span>
+</label>
+<label class="relative flex flex-col items-center justify-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer">
+<input class="hidden" name="payment_type" type="radio"/>
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">wallet</span>
+<span class="text-sm font-semibold">Digital Wallet</span>
+</label>
+</div>
+<!-- Card Form -->
+<div class="space-y-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Cardholder Name</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-900 focus:ring-primary focus:border-primary p-3" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2 relative">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-900 focus:ring-primary focus:border-primary p-3 pr-12" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400">lock</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Expiry Date</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-900 focus:ring-primary focus:border-primary p-3" placeholder="MM / YY" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">CVV</label>
+<input class="w-full rounded-lg border-slate-200 dark:border-slate-800 dark:bg-slate-900 focus:ring-primary focus:border-primary p-3" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+<!-- Billing Address Checkbox -->
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary h-5 w-5 border-slate-300 dark:border-slate-700 dark:bg-slate-900" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors">Billing address is same as shipping address</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="w-full md:w-96 flex flex-col gap-6">
+<div class="bg-white dark:bg-slate-900/50 rounded-xl border border-primary/10 p-6 h-fit sticky top-24">
+<h3 class="text-lg font-bold mb-6">Order Summary</h3>
+<!-- Product List -->
+<div class="space-y-4 mb-6">
+<div class="flex gap-4">
+                                <div class="size-16 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden flex-shrink-0">
+                                    <img class="w-full h-full object-cover" src="assets/size-a4.png" alt="Brainstorm XL" />
+                                </div>
+<div class="flex flex-col justify-center">
+<p class="text-sm font-bold">Creative Brainstorm XL</p>
+<p class="text-xs text-slate-500">Matte Black / Dotted</p>
+<p class="text-sm font-bold text-primary mt-1">290.000 VND</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-16 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden flex-shrink-0">
+<div class="w-full h-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">edit</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-sm font-bold">Pro Ink Pen Set</p>
+<p class="text-xs text-slate-500">Pack of 3 / 0.5mm</p>
+<p class="text-sm font-bold text-primary mt-1">150.000 VND</p>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-2 border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Subtotal</span>
+<span class="font-medium">440.000 VND</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Shipping</span>
+<span class="font-medium text-green-500">Free</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Estimated Tax</span>
+<span class="font-medium">35.000 VND</span>
+</div>
+<div class="flex justify-between text-lg font-bold pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
+<span>Total</span>
+<span class="text-primary">475.000 VND</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button onclick="window.location.href='./thankyou.html';" class="w-full mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span>Place Order</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[10px] text-slate-400 mt-4 px-2">
+                            By clicking Place Order, you agree to our Terms of Service and Privacy Policy.
+                        </p>
+</div>
+<!-- Secure Badge -->
+<div class="flex items-center justify-center gap-4 py-2 opacity-60">
+<div class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined" style="font-size: 16px;">verified_user</span>
+                            SSL Secure
+                        </div>
+<div class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined" style="font-size: 16px;">lock</span>
+                            PCI Compliant
+                        </div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-primary/10 bg-white dark:bg-background-dark py-8 px-6 md:px-20">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500">© 2026 NOTED Notebook Co. All rights reserved.</p>
+<div class="flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-400">
+<a class="hover:text-primary" href="#" onclick="alert('Help Center')">Help Center</a>
+<a class="hover:text-primary" href="#" onclick="alert('Privacy Policy')">Privacy</a>
+<a class="hover:text-primary" href="#" onclick="alert('Terms of Service')">Terms</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

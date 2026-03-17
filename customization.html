@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7a9f48",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <title>NOTED Notebook Customizer</title>
+
+    <style>
+        input[type=number].hide-arrows::-webkit-inner-spin-button,
+        input[type=number].hide-arrows::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number].hide-arrows {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 px-6 md:px-20 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+                <a href="./index.html" class="flex items-center gap-3 cursor-pointer group">
+                    <div class="flex items-center justify-center">
+                        <img src="assets/logo.png" alt="NOTED Logo"
+                            class="h-16 w-auto group-hover:scale-110 transition-transform">
+                    </div>
+                </a>
+            </header>
+            <main class="flex flex-col lg:flex-row flex-1 px-6 md:px-20 py-10 gap-10">
+                <!-- Configuration Column -->
+                <div class="flex-1 space-y-12">
+                    <section>
+                        <div class="flex flex-col gap-2 mb-6">
+                            <h1 class="text-4xl font-black leading-tight tracking-tight">Customize Your Notebook</h1>
+                            <p class="text-slate-500 dark:text-slate-400">Tailor every page to your unique brainstorming
+                                workflow.</p>
+                        </div>
+                    </section>
+                    <!-- 1. Notebook Size -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">1</span>
+                            <h2 class="text-xl font-bold">Select Notebook Size</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <label id="size-card-a5"
+                                class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer"
+                                onclick="window.appState.updateSize('A5')">
+                                <input checked class="hidden" name="size" type="radio" />
+                                <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700"
+                                    data-alt="Minimalist A5 notebook mockup on desk">
+                                    <img src="assets/size-a5.png" alt="A5 Notebook"
+                                        class="w-full h-full object-contain p-6"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-primary/40 hidden">menu_book</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold">A5 (148 x 210 mm)</p>
+                                    <p class="text-sm text-slate-500">Handy &amp; Portable</p>
+                                </div>
+                                <span id="size-check-a5"
+                                    class="absolute top-3 right-3 material-symbols-outlined text-primary">check_circle</span>
+                            </label>
+                            <label id="size-card-b5"
+                                class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer"
+                                onclick="window.appState.updateSize('B5')">
+                                <input class="hidden" name="size" type="radio" />
+                                <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700"
+                                    data-alt="Minimalist B5 notebook mockup on desk">
+                                    <img src="assets/size-b5.png" alt="B5 Notebook"
+                                        class="w-full h-full object-contain p-3"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-slate-400 hidden">menu_book</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold">B5 (176 x 250 mm)</p>
+                                    <p class="text-sm text-slate-500">Standard Balance</p>
+                                </div>
+                                <span id="size-check-b5"
+                                    class="hidden absolute top-3 right-3 material-symbols-outlined text-primary">check_circle</span>
+                            </label>
+                            <label id="size-card-a4"
+                                class="relative flex flex-col gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer"
+                                onclick="window.appState.updateSize('A4')">
+                                <input class="hidden" name="size" type="radio" />
+                                <div class="w-full aspect-[3/4] bg-slate-200 dark:bg-slate-800 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-700"
+                                    data-alt="Minimalist A4 notebook mockup on desk">
+                                    <img src="assets/size-a4.png" alt="A4 Notebook"
+                                        class="w-full h-full object-contain p-0"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                                    <span
+                                        class="material-symbols-outlined text-4xl text-slate-400 hidden">menu_book</span>
+                                </div>
+                                <div>
+                                    <p class="font-bold">A4 (210 x 297 mm)</p>
+                                    <p class="text-sm text-slate-500">Maximum Creative Space</p>
+                                </div>
+                                <span id="size-check-a4"
+                                    class="hidden absolute top-3 right-3 material-symbols-outlined text-primary">check_circle</span>
+                            </label>
+                        </div>
+                    </section>
+                    <!-- 2. Total Page Count -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">2</span>
+                            <h2 class="text-xl font-bold">Total Page Count</h2>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button id="page-btn-45"
+                                class="px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary font-bold transition-all"
+                                onclick="window.appState.updatePages(45)">45 Pages</button>
+                            <button id="page-btn-60"
+                                class="px-6 py-3 rounded-lg border-2 border-primary bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all"
+                                onclick="window.appState.updatePages(60)">60 Pages</button>
+                            <button id="page-btn-75"
+                                class="px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary font-bold transition-all"
+                                onclick="window.appState.updatePages(75)">75 Pages</button>
+                            <button id="page-btn-90"
+                                class="px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary font-bold transition-all"
+                                onclick="window.appState.updatePages(90)">90 Pages</button>
+                            <button id="page-btn-120"
+                                class="px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary font-bold transition-all"
+                                onclick="window.appState.updatePages(120)">120 Pages</button>
+                        </div>
+                    </section>
+                    <!-- 3. Page Types Selection -->
+                    <section>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">3</span>
+                            <h2 class="text-xl font-bold">Page Templates &amp; Distribution</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="templates-grid">
+
+                            <!-- Blank Template -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Blank Template', 'assets/blank-note.png')">
+                                        <img src="assets/blank-note.png" alt="Blank Template"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Blank Template</p>
+                                        <p class="text-[10px] text-slate-500">Pure Freedom</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('blank', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-blank" value="5" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('blank', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('blank', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Boxing Method -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Boxing Method', 'assets/boxing-note.png')">
+                                        <img src="assets/boxing-note.png" alt="Boxing Method"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Boxing Method</p>
+                                        <p class="text-[10px] text-slate-500">Task Grouping</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('boxing', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-boxing" value="0" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('boxing', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('boxing', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Grid / Caro -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Grid / Caro', 'assets/caro-note.png')">
+                                        <img src="assets/caro-note.png" alt="Grid / Caro"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Grid / Caro</p>
+                                        <p class="text-[10px] text-slate-500">Structured Grid</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('caro', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-caro" value="0" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('caro', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('caro', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Charting -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Charting', 'assets/charting-note.png')">
+                                        <img src="assets/charting-note.png" alt="Charting"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Charting</p>
+                                        <p class="text-[10px] text-slate-500">Tracker/Graph</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('charting', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-charting" value="0" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('charting', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('charting', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Cornell Notes -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Cornell Notes', 'assets/cornell-note.png')">
+                                        <img src="assets/cornell-note.png" alt="Cornell Notes"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Cornell Notes</p>
+                                        <p class="text-[10px] text-slate-500">Structured Review</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('cornell', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-cornell" value="10" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('cornell', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('cornell', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Eisenhower -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Eisenhower', 'assets/eisenhower-note.png')">
+                                        <img src="assets/eisenhower-note.png" alt="Eisenhower"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Eisenhower</p>
+                                        <p class="text-[10px] text-slate-500">Priority Matrix</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('eisenhower', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-eisenhower" value="5" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('eisenhower', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('eisenhower', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Mindmap -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Mindmap', 'assets/mindmap.png')">
+                                        <img src="assets/mindmap.png" alt="Mindmap"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Mindmap</p>
+                                        <p class="text-[10px] text-slate-500">Free Association</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('mindmap', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-mindmap" value="8" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('mindmap', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('mindmap', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Outline -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Outline', 'assets/outline-note.png')">
+                                        <img src="assets/outline-note.png" alt="Outline"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Outline</p>
+                                        <p class="text-[10px] text-slate-500">Hierarchical Planning</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('outline', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-outline" value="0" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('outline', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('outline', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Vision Board -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Vision Board', 'assets/vision-board.png')">
+                                        <img src="assets/vision-board.png" alt="Vision Board"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Vision Board</p>
+                                        <p class="text-[10px] text-slate-500">Goal Visualization</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('vision', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-vision" value="5" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('vision', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('vision', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Year in Pixels -->
+                            <div
+                                class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 fade-in-row">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0"
+                                        onclick="window.appState.openModal('Year in Pixels', 'assets/year-in-pixels.png')">
+                                        <img src="assets/year-in-pixels.png" alt="Year in Pixels"
+                                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                                            onerror="this.src='https://placehold.co/100x140?text=IMG'" />
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm leading-tight">Year in Pixels</p>
+                                        <p class="text-[10px] text-slate-500">Annual Tracker</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button type="button"
+                                        class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                                        onclick="window.appState.updateTemplate('year', -1)"><span
+                                            class="material-symbols-outlined text-sm">remove</span></button>
+                                    <input type="number" id="count-year" value="5" min="0" max="120"
+                                        class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows"
+                                        oninput="window.appState.updateTemplateInput('year', this)" />
+                                    <button type="button"
+                                        class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors"
+                                        onclick="window.appState.updateTemplate('year', 1)"><span
+                                            class="material-symbols-outlined text-sm">add</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Custom Upload -->
+                            <label
+                                class="flex flex-col p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border-2 border-dashed border-primary/40 hover:border-primary transition-colors cursor-pointer justify-center items-center text-center group">
+                                <input type="file" accept="image/png, image/jpeg, application/pdf" class="hidden"
+                                    onchange="window.appState.handleCustomUpload(this)">
+                                <span
+                                    class="material-symbols-outlined text-primary mb-1 group-hover:scale-110 transition-transform">upload_file</span>
+                                <p class="font-bold text-sm text-primary">Add your own design</p>
+                                <p class="text-[10px] text-slate-500">+50.000 VND Setup Fee. PDF/PNG</p>
+                            </label>
+                        </div>
+
+
+                        <!-- Live Counter -->
+                        <div
+                            class="mt-8 p-6 bg-slate-900 text-white rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-2">
+                                    <span id="pages-selected-text" class="text-sm font-medium">Selected pages: 38 /
+                                        60</span>
+                                    <span id="pages-percent-text" class="text-sm font-medium">63% Full</span>
+                                </div>
+                                <div class="w-full bg-slate-700 rounded-full h-2.5">
+                                    <div id="pages-progress-bar"
+                                        class="bg-primary h-2.5 rounded-full w-[63%] transition-all duration-300"></div>
+                                </div>
+                            </div>
+                            <p id="pages-remaining-text" class="text-xs text-slate-400 max-w-[200px] transition-colors">
+                                You have 22 more pages to assign to reach your selected notebook capacity.</p>
+                        </div>
+
+                        <!-- 4. Additional Features -->
+                        <section class="mt-12 mb-8">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">4</span>
+                                <h2 class="text-xl font-bold">Additional Features</h2>
+                            </div>
+                            <label id="wireless-toggle-container"
+                                class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-white dark:bg-slate-900 rounded-xl border-2 border-slate-200 dark:border-slate-800 cursor-pointer hover:border-primary transition-colors">
+                                <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-primary shrink-0">
+                                        <span class="material-symbols-outlined">bolt</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Wireless Charging
+                                            Pad</h3>
+                                        <p class="text-sm text-slate-500">Built into the back cover (Qi Compatible)</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <span class="font-bold text-primary">+300.000 VND</span>
+                                    <input type="checkbox"
+                                        class="w-6 h-6 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer"
+                                        id="wireless-charging-check" onchange="window.appState.toggleWireless()" />
+                                </div>
+                            </label>
+                        </section>
+
+                        <!-- 5. Gift Option -->
+                        <section class="mt-8 mb-12">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold">5</span>
+                                <h2 class="text-xl font-bold">Gifting</h2>
+                            </div>
+                            <label
+                                class="flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-white dark:bg-slate-900 rounded-xl border-2 border-slate-200 dark:border-slate-800 cursor-pointer hover:border-primary transition-colors">
+                                <div class="flex items-center gap-4 mb-4 sm:mb-0">
+                                    <div
+                                        class="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center text-primary shrink-0">
+                                        <span class="material-symbols-outlined">card_giftcard</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Make it a gift 🎁
+                                        </h3>
+                                        <p class="text-sm text-slate-500">Premium gift wrap & personalized card</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <span class="font-bold text-primary">+15.000 VND</span>
+                                    <input type="checkbox"
+                                        class="w-6 h-6 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer"
+                                        id="gift-option-check" onchange="window.appState.toggleGift()" />
+                                </div>
+                            </label>
+                        </section>
+
+
+                    </section>
+                </div>
+                <!-- Preview & Summary Sidebar -->
+                <div class="w-full lg:w-[400px] space-y-6">
+                    <div class="sticky top-24 space-y-6">
+                        <!-- Price Summary -->
+                        <div
+                            class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-xl">
+                            <h3 class="font-bold mb-4 text-lg">Order Summary</h3>
+
+                            <!-- Product Preview -->
+                            <div class="flex gap-4 mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                                <div class="h-24 w-20 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img id="summary-product-img" class="h-full w-full object-cover" src="assets/size-a5.png" alt="Notebook Preview" />
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-sm">Brainstorm Elite</h4>
+                                    <ul class="text-[11px] text-slate-500 space-y-1 mt-1">
+                                        <li>Premium Leather Cover</li>
+                                        <li>120gsm Banana Paper</li>
+                                        <li>6-Ring Binder System</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-3 mb-6">
+                                <div class="flex justify-between text-sm">
+                                    <span id="summary-base-name" class="text-slate-500">A5 Custom Notebook (60p)</span>
+                                    <span id="summary-base-price"
+                                        class="font-medium text-slate-900 dark:text-white">250.000 VND</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Premium Thick Paper (120gsm)</span>
+                                    <span class="font-medium">Included</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">Custom Template Layouts</span>
+                                    <span id="summary-template-price"
+                                        class="font-medium text-slate-900 dark:text-white">45.000 VND</span>
+                                </div>
+                                <div id="summary-wireless-wrapper"
+                                    class="hidden justify-between text-sm mt-3 border-t border-slate-100 dark:border-slate-800 pt-3">
+                                    <span class="text-slate-500">Wireless Charging Pad</span>
+                                    <span id="summary-wireless-price" class="font-medium text-primary">+40.000
+                                        VND</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-slate-500">QR Sync Integration</span>
+                                    <span class="font-medium">FREE</span>
+                                </div>
+                                <div id="summary-gift-wrapper"
+                                    class="hidden justify-between text-sm mt-3 border-t border-slate-100 dark:border-slate-800 pt-3">
+                                    <span class="text-slate-500">Gift Packaging 🎁</span>
+                                    <span id="summary-gift-price" class="font-medium text-primary">+5.000 VND</span>
+                                </div>
+                                <div
+                                    class="border-t border-slate-100 dark:border-slate-800 pt-3 mt-3 flex justify-between">
+                                    <span class="font-bold text-slate-900 dark:text-white">Total Price</span>
+                                    <span id="summary-total-price" class="font-bold text-xl text-primary">295.000
+                                        VND</span>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='./shipping.html'"
+                                class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2">
+                                Continue to Shipping
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </button>
+                            <p class="text-center text-[10px] text-slate-400 mt-4 px-4 leading-relaxed">
+                                Every notebook is handmade to order. Estimated shipping time: 3-5 business days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer -->
+            <footer class="border-t border-primary/10 py-10 px-6 md:px-20 bg-white dark:bg-background-dark">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-slate-400">NOTED Notebook</span>
+                    </div>
+                    <div class="flex gap-8 text-sm font-medium text-slate-500">
+                        <a class="hover:text-primary" href="#" onclick="alert('Templates Guide')">Templates Guide</a>
+                        <a class="hover:text-primary" href="#" onclick="alert('Bulk Orders')">Bulk Orders</a>
+                        <a class="hover:text-primary" href="#" onclick="alert('Privacy Policy')">Privacy Policy</a>
+                        <a class="hover:text-primary" href="#" onclick="alert('Support Context')">Support</a>
+                    </div>
+                    <div class="text-xs text-slate-400">
+                        © 2026 NOTED Notebook Co. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal"
+        class="fixed inset-0 z-[100] hidden bg-black/80 backdrop-blur-sm items-center justify-center p-4 transition-opacity">
+        <div class="relative bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-2 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center p-4 border-b border-slate-100 dark:border-slate-800">
+                <h3 id="modal-title" class="font-bold text-xl text-slate-900 dark:text-white">Template Preview</h3>
+                <button onclick="window.appState.closeModal()"
+                    class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-500">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div
+                class="p-4 flex items-center justify-center bg-slate-50 dark:bg-slate-950 rounded-b-xl overflow-hidden min-h-[400px]">
+                <img id="modal-img" src="" alt="Preview"
+                    class="max-w-full max-h-[60vh] object-contain shadow-lg rounded border border-slate-200 dark:border-slate-700" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.appState = {
+            size: 'A5',
+            pages: 60,
+            wireless: false,
+            giftOption: false,
+            templates: { blank: 5, boxing: 0, caro: 0, charting: 0, cornell: 10, eisenhower: 5, mindmap: 8, outline: 0, vision: 5, year: 5 },
+            customUploads: [], // array to store custom IDs
+
+            // Config
+            prices: {
+                size: { 'A5': 240000, 'B5': 280000, 'A4': 320000 },
+                pages: { 45: 0, 60: 10000, 75: 20000, 90: 30000, 120: 50000 },
+                wireless: 300000,
+                gift: 15000,
+                templateFee: 15000,
+                customDesignFee: 20000 // flat setup fee per uploaded design
+            },
+
+            updateSize(size) { this.size = size; this.render(); },
+            updatePages(pages) {
+                const currentTotal = Object.values(this.templates).reduce((a, b) => a + b, 0);
+                if (pages < currentTotal) {
+                    alert(`You have over ${pages} templates selected! Please remove some layout pages before downgrading capacity.`);
+                    // Reset button visuals logic handles it in render, but input doesn't revert. 
+                    // We'll just reject the change.
+                    return;
+                }
+                this.pages = pages;
+                this.render();
+            },
+            toggleWireless() {
+                this.wireless = document.getElementById('wireless-charging-check').checked;
+                this.render();
+            },
+            updateTemplate(type, delta) {
+                let currentTotal = Object.values(this.templates).reduce((a, b) => a + b, 0);
+                if (delta > 0 && currentTotal >= this.pages) {
+                    return;
+                }
+                if (delta < 0 && this.templates[type] <= 0) return;
+
+                this.templates[type] += delta;
+                document.getElementById('count-' + type).value = this.templates[type]; // specifically update the input box
+                this.render();
+            },
+            updateTemplateInput(type, el) {
+                let strVal = el.value.trim();
+                let calcVal = parseInt(strVal);
+                if (isNaN(calcVal) || calcVal < 0) calcVal = 0;
+
+                let totalWithoutThis = Object.values(this.templates).reduce((a, b) => a + b, 0) - this.templates[type];
+                let maxAllowed = this.pages - totalWithoutThis;
+
+                if (calcVal > maxAllowed) {
+                    calcVal = maxAllowed;
+                    el.value = maxAllowed; // Force input value correction on screen
+                }
+
+                this.templates[type] = calcVal;
+                this.render();
+            },
+            handleCustomUpload(fileInput) {
+                const file = fileInput.files[0];
+                if (!file) return;
+
+                const previewUrl = URL.createObjectURL(file);
+                const uniqueId = 'custom_' + Date.now();
+
+                // Add to state
+                this.templates[uniqueId] = 0;
+                this.customUploads.push(uniqueId);
+
+                // Create new DOM node
+                const grid = document.getElementById('templates-grid');
+                const uploadBtn = grid.lastElementChild; // The Add Your Own Design button
+
+                const newRow = document.createElement('div');
+                newRow.className = "flex items-center justify-between p-4 bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/40 fade-in-row order-last";
+                newRow.innerHTML = `
+            <div class="flex items-center gap-3 w-1/2">
+                <div class="w-10 h-14 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:border-primary transition-colors overflow-hidden shrink-0" onclick="window.appState.openModal('Custom Upload', '${previewUrl}')">
+                    <img src="${previewUrl}" alt="Custom" class="w-full h-full object-cover">
+                </div>
+                <div class="w-full">
+                    <input type="text" placeholder="Name your design..." class="w-full bg-transparent border-b border-primary/30 text-sm font-bold focus:outline-none focus:border-primary py-1">
+                    <p class="text-[10px] text-primary">+50.000 VND Setup Fee applied</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 shrink-0 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors" onclick="window.appState.updateTemplate('${uniqueId}', -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <input type="number" id="count-${uniqueId}" value="0" min="0" max="120" class="w-12 h-8 text-center font-bold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:ring-1 focus:ring-primary focus:outline-none hide-arrows" oninput="window.appState.updateTemplateInput('${uniqueId}', this)" />
+                <button type="button" class="tmpl-add-btn w-8 h-8 shrink-0 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors" onclick="window.appState.updateTemplate('${uniqueId}', 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+            </div>
+        `;
+
+                grid.insertBefore(newRow, uploadBtn);
+                this.render();
+                // clear input so same file can trigger change again if re-selected
+                fileInput.value = '';
+            },
+
+            openModal(title, imgUrl) {
+                document.getElementById('modal-title').innerText = title;
+                document.getElementById('modal-img').src = imgUrl;
+                document.getElementById('image-modal').classList.remove('hidden');
+                document.getElementById('image-modal').classList.add('flex');
+            },
+            closeModal() {
+                document.getElementById('image-modal').classList.add('hidden');
+                document.getElementById('image-modal').classList.remove('flex');
+            },
+
+            toggleGift() {
+                this.giftOption = document.getElementById('gift-option-check').checked;
+                this.render();
+            },
+
+            render() {
+                // Render Sizes
+                ['A5', 'B5', 'A4'].forEach(s => {
+                    const el = document.getElementById('size-card-' + s.toLowerCase());
+                    const check = document.getElementById('size-check-' + s.toLowerCase());
+                    if (this.size === s) {
+                        el.className = "relative flex flex-col gap-3 p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer transition-colors";
+                        check.classList.remove('hidden');
+                    } else {
+                        el.className = "relative flex flex-col gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 cursor-pointer transition-colors";
+                        check.classList.add('hidden');
+                    }
+                });
+
+                // Render Pages
+                [45, 60, 75, 90, 120].forEach(p => {
+                    const btn = document.getElementById('page-btn-' + p);
+                    if (this.pages === p) {
+                        btn.className = "px-6 py-3 rounded-lg border-2 border-primary bg-primary text-white font-bold shadow-lg shadow-primary/20 transition-all scale-105";
+                    } else {
+                        btn.className = "px-6 py-3 rounded-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary font-bold text-slate-600 dark:text-slate-300 transition-all";
+                    }
+                });
+
+                // Render Summary Image
+                const summaryImg = document.getElementById('summary-product-img');
+                if (summaryImg) {
+                    summaryImg.src = `assets/size-${this.size.toLowerCase()}.png`;
+                }
+
+                // Render Wireless
+                const wCard = document.getElementById('wireless-toggle-container');
+                if (this.wireless) {
+                    wCard.classList.add('border-primary', 'bg-primary/5');
+                    wCard.classList.remove('border-slate-200', 'dark:border-slate-800');
+                } else {
+                    wCard.classList.remove('border-primary', 'bg-primary/5');
+                    wCard.classList.add('border-slate-200', 'dark:border-slate-800');
+                }
+
+                // Render Template Counters
+                let currentTotal = 0;
+                for (const [type, count] of Object.entries(this.templates)) {
+                    document.getElementById('count-' + type).value = count;
+                    currentTotal += count;
+                }
+
+                // Render Progress
+                document.getElementById('pages-selected-text').innerText = `Selected pages: ${currentTotal} / ${this.pages}`;
+                let pct = Math.min((currentTotal / this.pages) * 100, 100).toFixed(0);
+                document.getElementById('pages-percent-text').innerText = `${pct}% Full`;
+                document.getElementById('pages-progress-bar').style.width = `${pct}%`;
+
+                let remaining = this.pages - currentTotal;
+                const msgEl = document.getElementById('pages-remaining-text');
+                const pBar = document.getElementById('pages-progress-bar');
+
+                if (remaining > 0) {
+                    msgEl.innerText = `You have ${remaining} more pages to assign to reach your selected notebook capacity.`;
+                    msgEl.className = 'text-xs max-w-[200px] transition-colors text-slate-400';
+                    pBar.className = 'transition-all duration-300 h-2.5 rounded-full bg-primary';
+                } else if (remaining === 0) {
+                    msgEl.innerText = `Perfect! You've precisely filled all ${this.pages} template pages.`;
+                    msgEl.className = 'text-xs max-w-[200px] transition-colors text-green-500 font-bold';
+                    pBar.className = 'transition-all duration-300 h-2.5 rounded-full bg-green-500';
+                } else {
+                    msgEl.innerText = `You are over capacity by ${Math.abs(remaining)} pages! Please remove some overlays or increase notebook size.`;
+                    msgEl.className = 'text-xs max-w-[200px] transition-colors text-red-500 font-bold';
+                    pBar.className = 'transition-all duration-300 h-2.5 rounded-full bg-red-500';
+                }
+
+                // Render Order Summary
+
+                // Inject Custom Upload Fee into Summary
+                let customSummaryEl = document.getElementById('summary-custom-fee');
+                if (!customSummaryEl) {
+                    const wrap = document.createElement('div');
+                    wrap.id = 'summary-custom-fee';
+                    wrap.className = "flex justify-between text-sm mt-2";
+                    wrap.innerHTML = `<span class="text-slate-500">Custom Upload Fees</span><span id="summary-custom-price" class="font-medium text-slate-900 dark:text-white">0 VND</span>`;
+
+                    const wirelessEl = document.getElementById('summary-wireless-wrapper');
+                    wirelessEl.parentNode.insertBefore(wrap, wirelessEl);
+                    customSummaryEl = wrap;
+                }
+
+                const customUploadCount = this.customUploads.length;
+                if (customUploadCount > 0) {
+                    customSummaryEl.classList.remove('hidden');
+                    document.getElementById('summary-custom-price').innerText = `+${(customUploadCount * this.prices.customDesignFee).toLocaleString('vi-VN')} VND`;
+                } else {
+                    customSummaryEl.classList.add('hidden');
+                }
+
+                const basePrice = this.prices.size[this.size];
+                const pagesPrice = this.prices.pages[this.pages];
+                const wirelessPrice = this.wireless ? this.prices.wireless : 0;
+                const giftPrice = this.giftOption ? this.prices.gift : 0;
+                const total = basePrice + pagesPrice + this.prices.templateFee + wirelessPrice + giftPrice + (customUploadCount * this.prices.customDesignFee);
+
+                document.getElementById('summary-base-name').innerText = `${this.size} Custom Notebook (${this.pages}p)`;
+                document.getElementById('summary-base-price').innerText = `${(basePrice + pagesPrice).toLocaleString('vi-VN')} VND`;
+
+                const wrapper = document.getElementById('summary-wireless-wrapper');
+                if (this.wireless) {
+                    wrapper.classList.remove('hidden');
+                    wrapper.classList.add('flex');
+                    document.getElementById('summary-wireless-price').innerText = `+${wirelessPrice.toLocaleString('vi-VN')} VND`;
+                } else {
+                    wrapper.classList.add('hidden');
+                    wrapper.classList.remove('flex');
+                }
+
+                const giftWrapper = document.getElementById('summary-gift-wrapper');
+                if (this.giftOption) {
+                    giftWrapper.classList.remove('hidden');
+                    giftWrapper.classList.add('flex');
+                    document.getElementById('summary-gift-price').innerText = `+${giftPrice.toLocaleString('vi-VN')} VND`;
+                } else {
+                    giftWrapper.classList.add('hidden');
+                    giftWrapper.classList.remove('flex');
+                }
+
+                document.getElementById('summary-total-price').innerText = `${total.toLocaleString('vi-VN')} VND`;
+
+                // Disable Add buttons if full
+                const addBtns = document.querySelectorAll('.tmpl-add-btn');
+                if (currentTotal >= this.pages) {
+                    addBtns.forEach(btn => btn.classList.add('opacity-30', 'cursor-not-allowed'));
+                } else {
+                    addBtns.forEach(btn => btn.classList.remove('opacity-30', 'cursor-not-allowed'));
+                }
+            }
+        };
+
+        window.onload = () => {
+            window.appState.render(); // Initialize on load
+        };
+
+        // Close modal when clicking outside background
+        document.getElementById('image-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                window.appState.closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
